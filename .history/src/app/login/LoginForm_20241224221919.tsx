@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -39,7 +40,11 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form action={loginAction} className="space-y-8">
+      <form
+        // onSubmit={form.handleSubmit(onSubmit)}
+        action={loginAction}
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="email"

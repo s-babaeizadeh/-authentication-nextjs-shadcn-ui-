@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -37,9 +38,24 @@ const LoginForm = () => {
     mode: "onChange",
   });
 
+  //   function onSubmit(data: ProfileFormValues) {
+  //     toast({
+  //       title: "You submitted the following values:",
+  //       description: (
+  //         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+  //           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+  //         </pre>
+  //       ),
+  //     });
+  //   }
+
   return (
     <Form {...form}>
-      <form action={loginAction} className="space-y-8">
+      <form
+        // onSubmit={form.handleSubmit(onSubmit)}
+        action={loginAction}
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="email"

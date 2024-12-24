@@ -10,13 +10,6 @@ const testUser = {
   password: "12345678",
 };
 
-type PrevState = {
-  errors?: {
-    email?: string[];
-    password?: string[];
-  };
-};
-
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }).trim(),
   password: z
@@ -25,7 +18,7 @@ const loginSchema = z.object({
     .trim(),
 });
 
-export async function login(state: PrevState | undefined, formData: FormData) {
+export async function login(prevState: any, formData: FormData) {
   const result = loginSchema.safeParse(Object.fromEntries(formData));
 
   if (!result.success) {

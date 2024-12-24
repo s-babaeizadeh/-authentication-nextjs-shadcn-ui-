@@ -11,10 +11,7 @@ const testUser = {
 };
 
 type PrevState = {
-  errors?: {
-    email?: string[];
-    password?: string[];
-  };
+  someProperty?: string;
 };
 
 const loginSchema = z.object({
@@ -25,7 +22,7 @@ const loginSchema = z.object({
     .trim(),
 });
 
-export async function login(state: PrevState | undefined, formData: FormData) {
+export async function login(prevState: PrevState, formData: FormData) {
   const result = loginSchema.safeParse(Object.fromEntries(formData));
 
   if (!result.success) {
